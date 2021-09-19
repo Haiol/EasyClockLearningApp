@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="100"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="33.3"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="제목제목제목제목"
+            android:textSize="100dp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/button_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="33.4"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/btnA"
+            android:layout_width="match_parent"
+            android:background="@drawable/main_btn"
+            android:layout_marginBottom="7dp"
+            android:text="A"
+            android:textSize="30dp"
+            android:layout_height="70dp">
+        </Button>
+        <Button
+            android:id="@+id/btnB"
+
+            android:layout_width="match_parent"
+            android:background="@drawable/main_btn"
+            android:layout_marginBottom="7dp"
+
+            android:text="B"
+            android:textSize="30dp"
+            android:layout_height="70dp">
+        </Button>
+        <Button
+            android:id="@+id/btnC"
+            android:layout_width="match_parent"
+            android:background="@drawable/main_btn"
+            android:text="C"
+            android:textSize="30dp"
+            android:layout_height="70dp">
+        </Button>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/footer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="33.3"
+        android:orientation="vertical"></LinearLayout>
+
+
+</LinearLayout>

@@ -41,7 +41,7 @@ public class LearningClockActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(map[pivot][2]==0)
-                    Log.e("Data","00000000000");
+                    Log.e("Data","000000000000");
             }
         });
         userTwoAnswer.setOnClickListener(new View.OnClickListener() {
