@@ -40,15 +40,26 @@ public class LearningClockActivity extends AppCompatActivity {
         userOneAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(map[pivot][2]==0)
-                    Log.e("Data","000000000000");
+                if(map[pivot][2]==0) {
+                    if (pivot < 10) pivot++;
+                    setClockBoard(map[pivot][0], map[pivot][1], map[pivot][2]);
+                    Toast.makeText(getApplicationContext(),"정답",Toast.LENGTH_LONG).show();
+                }
+                else
+                    Toast.makeText(getApplicationContext(),"오답",Toast.LENGTH_LONG).show();
             }
         });
         userTwoAnswer.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(map[pivot][2]==1)
-                    Log.e("Data","11111111111");
+                if(map[pivot][2]==1) {
+                    if (pivot < 10) pivot++;
+                    setClockBoard(map[pivot][0], map[pivot][1], map[pivot][2]);
+                    Toast.makeText(getApplicationContext(),"정답",Toast.LENGTH_LONG).show();
+                }
+                else
+                    Toast.makeText(getApplicationContext(),"오답",Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -95,6 +106,6 @@ public class LearningClockActivity extends AppCompatActivity {
         return hour*5+(int)(min*0.09);
     }
     public int getMinToHour(int min){
-        return min/5;
+        return min/5==0?12:min/5;
     }
 }
