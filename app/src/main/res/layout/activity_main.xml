@@ -8,61 +8,124 @@
     tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/title_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="33.3"
-        android:orientation="vertical">
+        android:layout_weight="13"></LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="30dp"
+        android:layout_weight="10"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:autoSizeTextType="uniform"
+            android:text="지금 몇 시야?"
+            android:textSize="60dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="30"
+        android:gravity="center"
+        android:weightSum="100">
+
+        <com.lovehp30.easyclocklearningapp.ClockView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="60"></com.lovehp30.easyclocklearningapp.ClockView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:gravity="center">
+
+        <RadioGroup
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <CheckBox
+                android:id="@+id/checkEasy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:autoSizeTextType="uniform"
+                android:onClick="onCheckBoxClicked"
+                android:text="쉬움"
+                android:textSize="35dp" />
+
+            <CheckBox
+                android:id="@+id/checkNormal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:autoSizeTextType="uniform"
+                android:onClick="onCheckBoxClicked"
+                android:text="보통"
+                android:textSize="35dp" />
+
+            <CheckBox
+                android:id="@+id/checkHard"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:autoSizeTextType="uniform"
+                android:onClick="onCheckBoxClicked"
+                android:text="어려움"
+                android:textSize="35dp" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="5">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="제목제목제목제목"
-            android:textSize="100dp"/>
+            android:autoSizeTextType="uniform"
+            android:gravity="center"
+            android:text="난이도를 선택하세요"
+            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/button_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="33.4"
-        android:layout_gravity="center"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/btnA"
-            android:layout_width="match_parent"
-            android:background="@drawable/main_btn"
-            android:layout_marginBottom="7dp"
-            android:text="A"
-            android:textSize="30dp"
-            android:layout_height="70dp">
-        </Button>
-        <Button
-            android:id="@+id/btnB"
+        android:layout_weight="22"
+        android:gravity="center">
 
-            android:layout_width="match_parent"
-            android:background="@drawable/main_btn"
-            android:layout_marginBottom="7dp"
-
-            android:text="B"
-            android:textSize="30dp"
-            android:layout_height="70dp">
-        </Button>
         <Button
-            android:id="@+id/btnC"
-            android:layout_width="match_parent"
-            android:background="@drawable/main_btn"
-            android:text="C"
-            android:textSize="30dp"
-            android:layout_height="70dp">
-        </Button>
+            android:id="@+id/startBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="시작하기"
+            android:textSize="30dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/footer_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="33.3"
-        android:orientation="vertical"></LinearLayout>
+        android:layout_weight="10"
+        android:gravity="right"
+        android:orientation="horizontal"
+        android:weightSum="100">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="17"
+            android:text="\?"
+            android:textSize="30dp" />
+    </LinearLayout>
 
 
 </LinearLayout>

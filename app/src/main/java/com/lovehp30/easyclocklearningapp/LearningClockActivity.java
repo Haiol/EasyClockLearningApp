@@ -3,6 +3,7 @@ package com.lovehp30.easyclocklearningapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 import java.util.Random;
 
 public class LearningClockActivity extends AppCompatActivity {
+    public int GameType=0;
     Button preBtn,nxtBtn,userOneAnswer,userTwoAnswer;
     ClockView clockBoard;
     int map[][],pivot=0;
@@ -29,6 +31,10 @@ public class LearningClockActivity extends AppCompatActivity {
         nxtBtn = findViewById(R.id.nxtBtn);
         userOneAnswer = findViewById(R.id.answer1);
         userTwoAnswer = findViewById(R.id.answer2);
+
+        Intent intent =getIntent();
+        GameType=intent.getExtras().getInt("GAME");
+
 
 //        clockBoard.invalidate();
         map = new int[10][3];
@@ -74,7 +80,7 @@ public class LearningClockActivity extends AppCompatActivity {
         nxtBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(pivot<10)pivot++;
+                if(pivot<9)pivot++;
                 setClockBoard(map[pivot][0],map[pivot][1],map[pivot][2]);
             }
         });
@@ -94,13 +100,35 @@ public class LearningClockActivity extends AppCompatActivity {
         clockBoard.invalidate();
     }
     public void createMap(){
+
         Random rand = new Random();
         //create map
-        for(int i=0;i<10;i++){
-            map[i][0] = rand.nextInt(11)+1;
-            map[i][1] = rand.nextInt(59)+1;
-            map[i][2] = rand.nextInt(2);
+
+        switch (GameType){
+            case MainActivity.EASY:
+                for(int i=0;i<10;i++){
+                    map[i][0] = rand.nextInt(11)+1;
+                    map[i][1] = 0;
+                    map[i][2] = rand.nextInt(2);
+                }
+                break;
+            case MainActivity.NORMAL:
+                for(int i=0;i<10;i++){
+                    map[i][0] = rand.nextInt(11)+1;
+                    map[i][1] = (rand.nextInt(11)+1)*5;
+                    map[i][2] = rand.nextInt(2);
+                }
+                break;
+            case MainActivity.HARD:
+                for(int i=0;i<10;i++){
+                    map[i][0] = rand.nextInt(11)+1;
+                    map[i][1] = rand.nextInt(59)+1;
+                    map[i][2] = rand.nextInt(2);
+                }
+                break;
         }
+
+
     }
     public int getHourToMin(int hour,int min){
         return hour*5+(int)(min*0.09);
