@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="13"></LinearLayout>
+        android:layout_weight="8"></LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -30,14 +30,15 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="30"
+        android:layout_weight="35"
         android:gravity="center"
         android:weightSum="100">
 
-        <com.lovehp30.easyclocklearningapp.ClockView
+        <ImageView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="60"></com.lovehp30.easyclocklearningapp.ClockView>
+            android:src="@drawable/mainclock"
+            android:layout_weight="62"/>
     </LinearLayout>
 
     <LinearLayout

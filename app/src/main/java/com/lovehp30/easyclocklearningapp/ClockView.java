@@ -5,6 +5,7 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Rect;
+import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.View;
@@ -41,7 +42,7 @@ public class ClockView extends View {
         height = getHeight();
         width = getWidth();
         padding = numeralSpacing + 50;
-        fontSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 15,
+        fontSize = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, 30,
                 getResources().getDisplayMetrics());
         int min = Math.min(height, width);
         radius = min / 2 - padding;
@@ -57,11 +58,13 @@ public class ClockView extends View {
             initClock();
         }
 
-        canvas.drawColor(Color.BLACK);
-        drawCircle(canvas);
-        drawCenter(canvas);
-        drawNumeral(canvas);
-
+//        canvas.drawColor(Color.BLACK);
+//        drawCircle(canvas);
+//        drawCenter(canvas);
+//        drawNumeral(canvas);
+        Drawable drawable = getResources().getDrawable(R.drawable.mainclock);
+        drawable.setBounds(0,0,width,height+10);
+        drawable.draw(canvas);
         drawHands(canvas,hour,min);
 
 //        postInvalidateDelayed(500);
@@ -76,6 +79,8 @@ public class ClockView extends View {
     private void drawHand(Canvas canvas, double loc, boolean isHour) {
         double angle = Math.PI * loc / 30 - Math.PI / 2;
         int handRadius = isHour ? radius - handTruncation - hourHandTruncation : radius - handTruncation;
+        paint.setStrokeWidth(15);
+        paint.setColor(Color.BLACK);
         canvas.drawLine(width / 2, height / 2,
                 (float) (width / 2 + Math.cos(angle) * handRadius),
                 (float) (height / 2 + Math.sin(angle) * handRadius),
